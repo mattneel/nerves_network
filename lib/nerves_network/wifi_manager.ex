@@ -128,7 +128,7 @@ defmodule Nerves.Network.WiFiManager do
 
   # Ignore events
   defp handle_registry_event({Nerves.NetworkInterface, event, %{ifname: ifname}}) do
-    Logger.info("WiFiManager(#{ifname}): ignoring event: #{inspect(event)}")
+    Logger.info("WiFiManager(#{ifname}): network_interface ignoring event: #{inspect(event)}")
     :noop
   end
 
@@ -147,7 +147,7 @@ defmodule Nerves.Network.WiFiManager do
 
   # Ignore events
   defp handle_registry_event({Nerves.WpaSupplicant, event, %{ifname: ifname}}) do
-    Logger.info("WiFiManager(#{ifname}): ignoring event: #{inspect(event)}")
+    Logger.info("WiFiManager(#{ifname}): wpa_supplicant ignoring event: #{inspect(event)}")
     :noop
   end
 
@@ -172,7 +172,7 @@ defmodule Nerves.Network.WiFiManager do
   end
 
   defp handle_registry_event({Nerves.Udhcpc, event, %{ifname: ifname}}) do
-    Logger.info("WiFiManager(#{ifname}): ignoring event: #{inspect(event)}")
+    Logger.info("WiFiManager(#{ifname}): udhcp ignoring event: #{inspect(event)}")
     :noop
   end
 
@@ -217,7 +217,7 @@ defmodule Nerves.Network.WiFiManager do
   end
 
   def handle_info(event, s) do
-    Logger.info("WiFiManager(#{s.ifname}): ignoring event: #{inspect(event)}")
+    Logger.info("WiFiManager(#{s.ifname}): info ignoring event: #{inspect(event)}")
     {:noreply, s}
   end
 
