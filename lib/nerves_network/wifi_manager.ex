@@ -334,6 +334,8 @@ defmodule Nerves.Network.WiFiManager do
     |> stop_udhcpc
     |> goto_context(:associate_wifi)
   end
+  
+  defp consume(:up, :ifadded, state), do: state
 
   @spec stop_wpa(t) :: t
   defp stop_wpa(state) do
