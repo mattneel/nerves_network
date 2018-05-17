@@ -170,6 +170,11 @@ defmodule Nerves.Network.WiFiManager do
     Logger.info("WiFiManager(#{ifname}): udhcp renew")
     {:renew, info}
   end
+  
+  defp handle_registry_event({Nerves.Udhcpc, :leasefail, %{ifname: ifname} = info}) do
+    Logger.info("WiFiManager(#{ifname}): udhcp leasefailed, renewing...")
+    {:renew, info}
+  end
 
   defp handle_registry_event({Nerves.Udhcpc, event, %{ifname: ifname}}) do
     Logger.info("WiFiManager(#{ifname}): udhcp ignoring event: #{inspect(event)}")
